@@ -21,8 +21,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec09d115-9b05-48d8-a0f6-84c85418d9f7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lc3_vm.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lc3_vm.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lc3-vm.c" beforeDir="false" afterPath="$PROJECT_DIR$/lc3-vm.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +47,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
   </component>
   <component name="RunManager">
     <configuration name="lc3_vm" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lc3_vm" TARGET_NAME="lc3_vm" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lc3_vm" RUN_TARGET_NAME="lc3_vm">
@@ -67,6 +67,9 @@
       <option name="presentableId" value="Default" />
       <updated>1591322593404</updated>
       <workItem from="1591322595182" duration="7847000" />
+      <workItem from="1591669232867" duration="23000" />
+      <workItem from="1591693134215" duration="3560000" />
+      <workItem from="1591709283994" duration="1967000" />
     </task>
     <servers />
   </component>
@@ -83,11 +86,44 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="689" y="178" key="SettingsEditor" timestamp="1591357224280">
+    <state width="1864" height="265" key="GridCell.Tab.0.bottom" timestamp="1591711217926">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="689" y="178" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591357224280" />
+    <state width="1864" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591711217926" />
+    <state width="1864" height="265" key="GridCell.Tab.0.center" timestamp="1591711217926">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1864" height="265" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591711217926" />
+    <state width="1864" height="265" key="GridCell.Tab.0.left" timestamp="1591711217926">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1864" height="265" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591711217926" />
+    <state width="1864" height="265" key="GridCell.Tab.0.right" timestamp="1591711217926">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1864" height="265" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591711217926" />
+    <state width="1864" height="346" key="GridCell.Tab.1.bottom" timestamp="1591697399724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1864" height="346" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591697399724" />
+    <state width="1864" height="346" key="GridCell.Tab.1.center" timestamp="1591697399723">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1864" height="346" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591697399723" />
+    <state width="1864" height="346" key="GridCell.Tab.1.left" timestamp="1591697399723">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1864" height="346" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591697399723" />
+    <state width="1864" height="346" key="GridCell.Tab.1.right" timestamp="1591697399724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1864" height="346" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591697399724" />
+    <state x="689" y="178" key="SettingsEditor" timestamp="1591694574907">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="689" y="178" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591694574907" />
   </component>
 </project>
