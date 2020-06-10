@@ -55,7 +55,7 @@ enum {
 // definition trap code
 enum {
   TRAP_GETC =
-  0x20, /* get character from keyboard, not echoed onto the terminal */
+      0x20, /* get character from keyboard, not echoed onto the terminal */
   TRAP_OUT = 0x21,   /* output a character */
   TRAP_PUTS = 0x22,  /* output a word string */
   TRAP_IN = 0x23,    /* get character from keyboard, echoed onto the terminal */
@@ -391,29 +391,55 @@ void STR(uint16_t instr) {
 // TRAP
 // --------------------------------------------------
 
-void GETC() { reg[R_R0] = (uint16_t) getchar(); }
+// GETC
+// Read a single character from the keyboard. The character is not echoed onto
+// the console. Its ASCII code is copied into R0. The high eight bits of R0 are
+// cleared.
+void GETC() { reg[R_R0] = (uint16_t)getchar(); }
 
+// OUT
+// Write a character in R0[7:0] to the console display.
 void OUT() {
-  putc((char) reg[R_R0], stdout);
+  putc((char)reg[R_R0], stdout);
   fflush(stdout);
 }
 
+// PUTS
+// Write a string of ASCII characters to the console display. The characters are
+// contained in consecutive memory locations, one character per memory location,
+// starting with the address specified in R0. Writing terminates with the
+// occurrence of x0000 in a memory location.
 void PUTS() {
   uint16_t *c = memory + reg[R_R0];
   while (*c) {
-    putc((char) *c, stdout);
+    putc((char)*c, stdout);
     ++c;
   }
   fflush(stdout);
 }
 
+// IN
+// Print a prompt on the screen and read a single character from the keyboard.
+// The character is echoed onto the console monitor, and its ASCII code is
+// copied into R0. The high eight bits of R0 are cleared.
 void IN() {
   printf("Enter a character: ");
   char c = getchar();
   putc(c, stdout);
-  reg[R_R0] = (uint16_t) c;
+  reg[R_R0] = (uint16_t)c;
 }
 
+// PUTSP
+// Write a string of ASCII characters to the console. The characters are
+// contained in
+// consecutive memory locations, two characters per memory location, starting
+// with the address specified in R0. The ASCII code contained in bits [7:0] of a
+// memory location is written to the console first. Then the ASCII code contained
+// in bits [15:8] of that memory location is written to the console. (A character
+// string consisting of an odd number of characters to be written will have x00
+// in bits [15:8] of the memory location containing the last character to be
+// written.) Writing terminates with the occurrence of x0000 in a memory
+// location.
 void PUTSP() {
   uint16_t *c = memory + reg[R_R0];
   while (*c) {
@@ -428,6 +454,8 @@ void PUTSP() {
   fflush(stdout);
 }
 
+// HALT
+// Halt execution and print a message on the console.
 void HALT() {
   puts("HALT");
   fflush(stdout);
@@ -464,52 +492,72 @@ int main(int argc, const char *argv[]) {
     uint16_t op = instr >> 12;
 
     switch (op) {
-      case OP_ADD:ADD(instr);
+    case OP_ADD:
+      ADD(instr);
+      break;
+    case OP_AND:
+      AND(instr);
+      break;
+    case OP_NOT:
+      NOT(instr);
+      break;
+    case OP_BR:
+      BR(instr);
+      break;
+    case OP_JMP:
+      JMP(instr);
+      break;
+    case OP_JSR:
+      JSR(instr);
+      break;
+    case OP_LD:
+      LD(instr);
+      break;
+    case OP_LDI:
+      LDI(instr);
+      break;
+    case OP_LDR:
+      LDR(instr);
+      break;
+    case OP_LEA:
+      LEA(instr);
+      break;
+    case OP_ST:
+      ST(instr);
+      break;
+    case OP_STI:
+      STI(instr);
+      break;
+    case OP_STR:
+      STR(instr);
+      break;
+    case OP_TRAP:
+      switch (instr & 0xFF) {
+      case TRAP_GETC:
+        GETC();
         break;
-      case OP_AND:AND(instr);
+      case TRAP_OUT:
+        OUT();
         break;
-      case OP_NOT:NOT(instr);
+      case TRAP_PUTS:
+        PUTS();
         break;
-      case OP_BR:BR(instr);
+      case TRAP_IN:
+        IN();
         break;
-      case OP_JMP:JMP(instr);
+      case TRAP_PUTSP:
+        PUTSP();
         break;
-      case OP_JSR:JSR(instr);
+      case TRAP_HALT:
+        HALT();
         break;
-      case OP_LD:LD(instr);
-        break;
-      case OP_LDI:LDI(instr);
-        break;
-      case OP_LDR:LDR(instr);
-        break;
-      case OP_LEA:LEA(instr);
-        break;
-      case OP_ST:ST(instr);
-        break;
-      case OP_STI:STI(instr);
-        break;
-      case OP_STR:STR(instr);
-        break;
-      case OP_TRAP:
-        switch (instr & 0xFF) {
-          case TRAP_GETC:GETC();
-            break;
-          case TRAP_OUT:OUT();
-            break;
-          case TRAP_PUTS:PUTS();
-            break;
-          case TRAP_IN:IN();
-            break;
-          case TRAP_PUTSP:PUTSP();
-            break;
-          case TRAP_HALT:HALT();
-            break;
-        }
-        break;
-      case OP_RES:
-      case OP_RTI:
-      default:abort();
-        break;
+      }
+      break;
+    case OP_RES:
+    case OP_RTI:
+    default:
+      abort();
+      break;
     }
   }
   restore_input_buffering();

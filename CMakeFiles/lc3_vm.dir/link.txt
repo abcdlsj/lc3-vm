@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/lc3_vm.dir/lc3-vm.c.o  -o lc3_vm 
