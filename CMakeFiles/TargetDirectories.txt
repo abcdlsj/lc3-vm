@@ -1,3 +1,0 @@
-/home/abcdlsj/github/vm/lc3-vm/CMakeFiles/rebuild_cache.dir
-/home/abcdlsj/github/vm/lc3-vm/CMakeFiles/lc3_vm.dir
-/home/abcdlsj/github/vm/lc3-vm/CMakeFiles/edit_cache.dir
